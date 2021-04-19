@@ -1,8 +1,8 @@
-@include('admin.nav')
 @extends('plantilla')
+@include('admin.nav')
+
 
 @section('contenido')
-
 <div class="container mt-5">
     <div class="row mt-5">
       <div class="col-lg-3 col-md-12 col-sm-12 mb-3">

@@ -14,3 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'inicio')->name('home');
+
+Route::view('/add-platillos', 'admin.agregar-platillos')->name('platillos.create');
+Route::view('/add-especialidades', 'admin.agregar-especialidades')->name('especialidades.create');
