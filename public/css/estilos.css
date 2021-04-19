@@ -1,0 +1,68 @@
+li{
+    text-decoration: none;
+}
+
+.logo{
+    width: 90px;
+    height: 90px;
+    position: relative;
+    margin-top: 20px;
+}
+.letra{
+    font-family: cursive;
+}
+/* .ocultar:hover{
+    position: relative;
+    transition-duration: 3s;
+    display: none;  
+} */
+
+
+.myborder{
+  border-width: 5px;
+  border-style: dashed;
+}
+.ingrediente{
+ cursor: pointer;
+}
+
+
+
+
+  @media (max-width: 18000px) and (min-width: 783px) {
+    .carrusel {
+     height: 400px;
+    }
+  }
+
+  @media (max-width: 782px) and (min-width: 473px) {
+    .carrusel {
+     height: 600px;
+    }
+  }
+
+  @media (max-width: 472px) and (min-width: 200px) {
+    .carrusel {
+     height: 1200px;
+    }
+  }
+
+
+
+
+  .centrado-vertical{
+    vertical-align: middle;
+  }
+
+
+  .table_wrapper{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+
+a{
+  text-decoration: none;
+  color: white;
+}
