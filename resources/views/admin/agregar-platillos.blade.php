@@ -58,14 +58,15 @@ aria-hidden="true"
       <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-      <form action="">
+      <form action="{{route('platillos.store')}}" method="POST">
+        @csrf
         <div class="form-group">
           <label for="">Nombre</label>
           <input type="text" class="form-control" name="nombre">
         </div>
         <div class="form-group">
           <label for="">Precio $</label>
-          <input type="text" class="form-control" name="descripcion">
+          <input type="text" class="form-control" name="precio">
         </div>
         <br>
         <div class="form-outline">
@@ -78,12 +79,12 @@ aria-hidden="true"
           <input type="file" name="imagen2" class="form-control" id="">
           <input type="file" name="imagen3" class="form-control" id="">
         </div>
-      </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" >
+      <button type="submit" class="btn btn-primary" >
         Agregar
       </button>
+    </form>
       <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Cancelar</button>
     </div>
   </div>

@@ -7,7 +7,7 @@
   <div class="container-fluid mb-5">
     <div class="row p-3 d-flex justify-content-center text-center text-white shadow fixed-top bg-success">
       <div class="col-3 text-white">
-        <a href="https://facebok.com" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="https://facebok.com" target="_blank"><i class="fab fa-facebook fa-2x text-white"></i></a>
       </div>
       <div class="col-3">
         <i class="fab fa-twitter fa-2x"></i>

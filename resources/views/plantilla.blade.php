@@ -14,7 +14,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
     />
-    <!-- MDB -->
+    <link href="{{asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{asset('css/mdb.min.css')}}" />
     <link rel="stylesheet" href="{{asset('slick/slick-theme.css')}}">
     <link rel="stylesheet" href="{{asset('slick/slick.css')}}">
@@ -33,6 +33,8 @@
   <script type="text/javascript" src="{{asset('js/mdb.min.js')}}"></script>
   <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
   <script type="text/javascript" src="{{asset('slick/slick.js')}}"></script>
+  <script src="{{asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js')}}"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <script type="text/javascript">
     $('.single-item').slick({
@@ -43,6 +45,43 @@
       autoplayspeed: 1000
     });
 
+
+
+    $('.single-item').slick({
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplayspeed: 1000
+    });
+
+    $('.js-example-basic-multiple').select2({
+        placeholder: 'Selecciona tus ingredientes'
+    });
+
+     
+    $('.ingrediente').click(function(){
+  
+      swal({
+      title: "¿Borrar ingrediente?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    $(this).remove()
+    swal("Ingrediente borrado", {
+      icon: "success",
+    });
+  } else {
+    swal("No se borro nada",{
+      icon: "warning"
+    })
+    
+  }
+});
+    })
 
   </script>
 </html>
