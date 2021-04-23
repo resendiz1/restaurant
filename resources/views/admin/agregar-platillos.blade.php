@@ -1,15 +1,21 @@
 @extends('plantilla')
-@include('admin.nav')
-
-
 @section('contenido')
-<div class="container mt-5">
-    <div class="row mt-5">
-      <div class="col-lg-3 col-md-12 col-sm-12 mb-3">
+
+
+
+<div class="container  border">
+  <div class="row d-flex bg-success rounded p-3 justify-content-center">
+    <div class="col-12 text-center">
+      <h1 class="text-white">Agregando Platillos</h1>
+      <h2>{{$errors->first('nombre')}}</h2>
+    </div>
+  </div>
+    <div class="row mt-5 d-flex justify-content-center">
+      <div class="col-10 mb-3">
         <button class="btn btn-success"  data-mdb-toggle="modal" data-mdb-target="#exampleModal"> <i class="fa fa-plus"></i> Agregar a platillos normales</button>
       </div>
-      <div class="col-12">
-        <table class="table table-striped  table_wrapper text-center">
+      <div class="col-10">
+        <table class="table table-striped  table_wrapper text-center border">
           <thead>
               <tr>
                 <th>Nombre</th>
@@ -58,15 +64,15 @@ aria-hidden="true"
       <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-      <form action="{{route('platillos.store')}}" method="POST">
+      <form action="{{route('platillos.store')}}" enctype="multipart/form-data" method="POST">
         @csrf
-        <div class="form-group">
+        <div class="form-group has-error">
           <label for="">Nombre</label>
-          <input type="text" class="form-control" name="nombre">
+          <input type="text" class="form-control" value="conchas" name="nombre">
         </div>
         <div class="form-group">
           <label for="">Precio $</label>
-          <input type="text" class="form-control" name="precio">
+          <input type="number" class="form-control" value="33"  name="precio">
         </div>
         <br>
         <div class="form-outline">
@@ -78,6 +84,11 @@ aria-hidden="true"
           <input type="file" name="imagen1" class="form-control" id="">
           <input type="file" name="imagen2" class="form-control" id="">
           <input type="file" name="imagen3" class="form-control" id="">
+        </div>
+        <div class="form-group mt-3 text-center">
+          <label for="">¿Especialidad?</label> <br>
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+        />
         </div>
     </div>
     <div class="modal-footer">

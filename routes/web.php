@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\platilloController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +23,4 @@ Route::view('/prepara', 'prepara-pedido')->name('prepara');
 
 
 Route::view('/add-platillos', 'admin.agregar-platillos')->name('platillos.create');
-Route::view('/add-especialidades', 'admin.agregar-especialidades')->name('especialidades.create');
+Route::post('/add-platillos', [platilloController::class, 'store'])->name('platillos.store');
