@@ -7,7 +7,20 @@
   <div class="row d-flex bg-success rounded p-3 justify-content-center">
     <div class="col-12 text-center">
       <h1 class="text-white">Agregando Platillos</h1>
-      <h2>{{$errors->first('nombre')}}</h2>
+
+
+        {!!$errors->first('nombre', '<li class="text-danger bg-white m-0">:message </li>')!!}
+        {!!$errors->first('precio', '<li class="text-danger bg-white m-0">:message </li>')!!}
+        {!!$errors->first('descripcion', '<li class="text-danger bg-white m-0">:message </li>')!!}
+        {!!$errors->first('imagen1', '<li class="text-danger bg-white m-0">:message </li>')!!}
+        {!!$errors->first('imagen2', '<li class="text-danger bg-white m-0">:message </li>')!!}
+        {!!$errors->first('imagen3', '<li class="text-danger bg-white m-0">:message </li>')!!}
+      
+        @if (session('success'))
+        <div class="alert alert-info h3">   {!! session('success')  !!}</div>
+        @endif
+      
+
     </div>
   </div>
     <div class="row mt-5 d-flex justify-content-center">
@@ -27,14 +40,22 @@
               </tr>
           </thead>
           <tbody>
+          
+              @forelse ($platillos as $item)
+    
             <tr>
-              <th class="centrado-vertical">Platillo uno</th>
-              <th class="centrado-vertical" >$200</th>
-              <th class="centrado-vertical" > <img src="img/1.jpg" class="img-fluid" style="width: 300px;" alt=""> </th>
+              <th class="centrado-vertical">{{$item->nombre}}</th>
+              <th class="centrado-vertical" >${{$item->precio}}</th>
+              <th class="centrado-vertical" > <img src="{{Storage::url($item->imagen1 )}}" class="img-fluid" style="width: 250px;" alt=""> </th>
               <th class="centrado-vertical" > <button class="btn btn-primary"> Actualizar </button> </th>
               <th class="centrado-vertical" > <button class="btn btn-danger">Borrar</button> </th>
               <th class="centrado-vertical" >  <button class="btn btn-success"> Agregar ingredientes </button> </th>
             </tr>
+              @empty
+                  <li>No hay ni madres</li>
+              @endforelse
+            
+
           </tbody>
         </table>
       </div>
@@ -66,7 +87,7 @@ aria-hidden="true"
     <div class="modal-body">
       <form action="{{route('platillos.store')}}" enctype="multipart/form-data" method="POST">
         @csrf
-        <div class="form-group has-error">
+        <div class="form-group">
           <label for="">Nombre</label>
           <input type="text" class="form-control" value="conchas" name="nombre">
         </div>
@@ -87,7 +108,7 @@ aria-hidden="true"
         </div>
         <div class="form-group mt-3 text-center">
           <label for="">¿Especialidad?</label> <br>
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+          <input class="form-check-input" type="checkbox" name="especialidad"  id="flexCheckDefault"
         />
         </div>
     </div>

@@ -22,5 +22,6 @@ Route::view('/prepara', 'prepara-pedido')->name('prepara');
 
 
 
-Route::view('/add-platillos', 'admin.agregar-platillos')->name('platillos.create');
+
 Route::post('/add-platillos', [platilloController::class, 'store'])->name('platillos.store');
+Route::get('/add-platillos', [platilloController::class, 'show'])->name('platillos.create');

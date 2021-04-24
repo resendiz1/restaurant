@@ -9,5 +9,5 @@ class Platillo extends Model
 {
     use HasFactory;
 
-    protected $filleable = ['nombre', 'precio', 'descripcion', 'imagen1', 'imagen2', 'imagen3', 'especialidad'];
+    protected $fillable = ['nombre', 'precio', 'descripcion', 'imagen1', 'imagen2', 'imagen3', 'especialidad'];
 }
