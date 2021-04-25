@@ -22,6 +22,9 @@ Route::view('/prepara', 'prepara-pedido')->name('prepara');
 
 
 
+Route::delete('/add-platillo/{id}', [platilloController::class, 'delete'])->name('platillos.delete');
 
 Route::post('/add-platillos', [platilloController::class, 'store'])->name('platillos.store');
 Route::get('/add-platillos', [platilloController::class, 'show'])->name('platillos.create');
+Route::get('/add-platillos/{id}/editando', [platilloController::class, 'edit'])->name('platillos.edit');
+Route::patch('/add-platillos/{id}', [platilloController::class, 'update'])->name('platillo.update');

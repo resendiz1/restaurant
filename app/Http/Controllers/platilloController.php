@@ -60,5 +60,46 @@ class platilloController extends Controller
         return view('admin.agregar-platillos', compact('platillos'));
     }
 
+    public function delete($id){
+
+        Platillo::destroy($id);
+        return redirect()->route('platillos.create')->with('deleted', 'El platillo fue borrado');
+
+    }
+
+
+    public function edit(Platillo $id){
+
+        
+        return view('admin.editar-producto', compact('id'));
+
+    }
+
+
+    public function update(Platillo $id){
+
+
+        if(request('especialidad')== 'on'){  
+            $especialidad = 'si';
+        }
+        else{
+            $especialidad = 'no';
+        }
+
+
+        $id->update([
+            'nombre' => $id->nombre,
+            'descripcion' => $id->descripcion,
+            'precio' => $id->precio,
+            'imagen1' => $id->imagen1,
+            'imagen2' => $id->imagen2,
+            'imagen3' => $id->imagen3,
+            'especialidad' => $especialidad
+
+        ]);
+
+        return redirect()->route('platillos.create')->with('updated', 'El platillos fue actualizado con exito');
+    }
+
 
 }
