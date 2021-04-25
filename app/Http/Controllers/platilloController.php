@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Platillo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class platilloController extends Controller
 {
@@ -101,5 +102,24 @@ class platilloController extends Controller
         return redirect()->route('platillos.create')->with('updated', 'El platillos fue actualizado con exito');
     }
 
+   
+    public function platillo_normal(){
+        
+        $platillo = DB::select("SELECT*FROM platillos WHERE especialidad LIKE 'no'");
+        $especialidad = DB::select("SELECT*FROM platillos WHERE especialidad LIKE 'si' ");
+        return view('inicio', compact('platillo', 'especialidad'));        
+        
+    } 
+
+
+
+    public function prueba(){
+
+        //Preparando el camino para lanzar el pedido
+        return request();
+        return request()->states[0];
+
+
+    }
 
 }

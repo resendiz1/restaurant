@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\platilloController;
+
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'inicio')->name('home');
+// Route::view('/', 'inicio')->name('home');
 Route::view('/pedidos', 'admin.pedidos')->name('pedidos');
 Route::view('/prepara', 'prepara-pedido')->name('prepara');
+
+
+Route::post('/preparar-pedido', [platilloController::class, 'prueba'])->name('ingrediente');
 
 
 
@@ -28,3 +34,6 @@ Route::post('/add-platillos', [platilloController::class, 'store'])->name('plati
 Route::get('/add-platillos', [platilloController::class, 'show'])->name('platillos.create');
 Route::get('/add-platillos/{id}/editando', [platilloController::class, 'edit'])->name('platillos.edit');
 Route::patch('/add-platillos/{id}', [platilloController::class, 'update'])->name('platillo.update');
+
+
+Route::get('/', [platilloController::class, 'platillo_normal'])->name('home');

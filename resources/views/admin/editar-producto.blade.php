@@ -3,6 +3,9 @@
 @section('contenido')
     <div class="container">
         <div class="d-flex justify-content-center row border ">
+          <div class="col-8 text-center">
+            <a href="{{route('platillos.create')}}">Regresar</a>
+          </div>
             <div class="col-7 bg-success text-white p-3 text-center">
                 <h1>Editando {{$id->nombre}}</h1>
             </div>

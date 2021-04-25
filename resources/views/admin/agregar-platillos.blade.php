@@ -33,13 +33,14 @@
       <div class="col-10 mb-3">
         <button class="btn btn-success"  data-mdb-toggle="modal" data-mdb-target="#exampleModal"> <i class="fa fa-plus"></i> Agregar a platillos normales</button>
       </div>
-      <div class="col-9">
+      <div class="col-10">
         <table class="table table-striped  table_wrapper text-center">
           <thead>
               <tr>
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th>Imagen</th>
+                <th>¿Especialidad?</th>
                 <th>Actualizar</th>
                 <th>Borrar</th>
                 <th> <i class="fa fa-plus"> Ingredientes</i> </th>
@@ -55,9 +56,10 @@
               <th class="centrado-vertical">{{$item->nombre}}</th>
               <th class="centrado-vertical" >${{$item->precio}}</th>
               <th class="centrado-vertical" > <img src="{{Storage::url($item->imagen1 )}}" class="img-fluid" style="width: 150px;" alt=""> </th>
-              <th class="centrado-vertical" > <button class="btn btn-primary"> Actualizar </button> </th>
+              <th class="centrado-vertical">{{$item->especialidad}}</th>
+              <th class="centrado-vertical" > <a href="{{route('platillos.edit', $item)}}" class="btn btn-primary"> Actualizar </a> </th>
               <th class="centrado-vertical" > <button class="btn btn-danger"  data-mdb-toggle="modal" data-mdb-target="#b{{$item->id}}">Borrar</button></th>
-              <th class="centrado-vertical" > <a href="{{route('platillos.edit', $item)}}" class="btn btn-success">Editar</a>  </th>
+              <th class="centrado-vertical" > <a href="#" class="btn btn-success">Agregar</a>  </th>
               <th></th>
             </tr>
 
