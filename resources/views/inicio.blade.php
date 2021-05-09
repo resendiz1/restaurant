@@ -54,7 +54,7 @@
   </div>
 </div> 
 @empty
-    <li>No hay nada uqe mostrar</li>
+    <li>No hay nada que mostrar</li>
 @endforelse 
 
         </div><!--  Fin del carousel -->
@@ -86,7 +86,7 @@
       </div>
           
       @empty
-          
+          <li>Nada para mostrar</li>
       @endforelse
 
    </div>

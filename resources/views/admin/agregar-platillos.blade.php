@@ -30,10 +30,10 @@
     </div>
   </div>
     <div class="row mt-5 d-flex justify-content-center">
-      <div class="col-10 mb-3">
+      <div class="col-12 mb-3">
         <button class="btn btn-success"  data-mdb-toggle="modal" data-mdb-target="#exampleModal"> <i class="fa fa-plus"></i> Agregar a platillos normales</button>
       </div>
-      <div class="col-10">
+      <div class="col-12">
         <table class="table table-striped  table_wrapper text-center">
           <thead>
               <tr>
@@ -44,6 +44,7 @@
                 <th>Actualizar</th>
                 <th>Borrar</th>
                 <th> <i class="fa fa-plus"> Ingredientes</i> </th>
+                <th>  <i class="fa fa-plus-square mx-3">Ingre. Extra</i> </th>
                 <th></th>
           
               </tr>
@@ -59,7 +60,8 @@
               <th class="centrado-vertical">{{$item->especialidad}}</th>
               <th class="centrado-vertical" > <a href="{{route('platillos.edit', $item)}}" class="btn btn-primary"> Actualizar </a> </th>
               <th class="centrado-vertical" > <button class="btn btn-danger"  data-mdb-toggle="modal" data-mdb-target="#b{{$item->id}}">Borrar</button></th>
-              <th class="centrado-vertical" > <a href="#" class="btn btn-success">Agregar</a>  </th>
+              <th class="centrado-vertical" > <a href="{{route('ingrediente.create', $item->id)}}" class="btn btn-success"> <i class="fa fa-plus"></i> </a>  </th>
+              <th class="centrado-vertical"> <a href="{{route('extra.create', $item->id)}}" class="btn btn-secondary"> <i class="fa fa-plus-square"></i> </a>   </th>
               <th></th>
             </tr>
 
@@ -116,13 +118,7 @@
 
 
 <!-- Modal -->
-<div
-class="modal fade"
-id="exampleModal"
-tabindex="-1"
-aria-labelledby="exampleModalLabel"
-aria-hidden="true"
->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
@@ -171,5 +167,9 @@ aria-hidden="true"
   </div>
 </div>
 </div>
+
+
+
+
 
 @endsection

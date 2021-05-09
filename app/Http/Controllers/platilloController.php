@@ -115,10 +115,7 @@ class platilloController extends Controller
 
     public function prueba(){
 
-        //Preparando el camino para lanzar el pedido
-        return request();
-        return request()->states[0];
-
+     return request()->all();
 
     }
 
