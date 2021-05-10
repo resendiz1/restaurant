@@ -46,7 +46,7 @@
           <h3 class="mb-3 font-weight-bold">Nombre del platillo</h3>
           <p class=" p-2 h5"> {{$item->descripcion}}  </p>
           <div class="row p-0 d-flex text-center justify-content-center mt-5">
-            <div class="col-12 m-0"> <a href="{{route('prepara')}}" class="btn btn-success rounded-pill text-uppercase  btn-lg">Preparar pedido y seleccionar ingredientes</a> </div>
+            <div class="col-12 m-0"> <a href="{{route('prepara.create', $item->id)}}" class="btn btn-success rounded-pill text-uppercase  btn-lg">Preparar pedido y seleccionar ingredientes</a> </div>
           </div>
         </div>
       </div>

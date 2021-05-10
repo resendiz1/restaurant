@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\extraController;
 use App\Http\Controllers\ingredienteController;
+use App\Http\Controllers\pedidosController;
 use App\Http\Controllers\platilloController;
 
 
@@ -21,10 +22,15 @@ use Illuminate\Support\Facades\Route;
 
 // Route::view('/', 'inicio')->name('home');
 Route::view('/pedidos', 'admin.pedidos')->name('pedidos');
-Route::view('/prepara', 'prepara-pedido')->name('prepara');
+
 Route::view('/ad-extra', 'admin.ingredientes-extra')->name('extra');
 
-// Route::post('/preparar-pedido/{id}', [platilloController::class, 'prueba'])->name('ingrediente');
+
+//Rutas de los pedidos que hace el cliente
+
+Route::get('/pedido/{id}', [pedidosController::class, 'create'])->name('prepara.create');
+Route::post('/pedido', [pedidosController::class, 'store'])->name('pedido.store');
+
 
 
 
@@ -49,7 +55,8 @@ Route::post('/add-platillo', [extraController::class, 'store'])->name('extra.sto
 
 
 //Rutas de los ingredientes normales
-Route::get('/add-platillo/normal/{identificador}/', [extraController::class, 'create'])->name('ingrediente.create');
+Route::get('/add-platillo/{id}/', [ingredienteController::class, 'create'])->name('ingrediente.create');
+Route::post('/add-platillo', [ingredienteController::class, 'store'])->name('ingrediente.store');
 //Rutas de los ingredientes normales
 
 

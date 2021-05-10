@@ -113,10 +113,5 @@ class platilloController extends Controller
 
 
 
-    public function prueba(){
-
-     return request()->all();
-
-    }
 
 }

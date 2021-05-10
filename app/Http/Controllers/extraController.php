@@ -9,7 +9,7 @@ class extraController extends Controller
 {
 
     public function create($id){
-        return view('admin.ingredientes-normal', compact('id'));
+        return view('admin.ingredientes-extra', compact('id'));
     }
 
     public function store(){

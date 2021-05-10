@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Extra;
+use App\Models\Ingrediente;
 use Illuminate\Http\Request;
 
 class ingredienteController extends Controller
@@ -15,20 +16,18 @@ class ingredienteController extends Controller
     public function store(){
 
         request()->validate([
-            'nombre' => 'required',
-            'precio' => 'required'
+            'nombre' => 'required'
         ]);
 
         
-        Extra::create([
+        Ingrediente::create([
             'nombre' => request('nombre'),
-            'precio' => request('precio'),
             'platillo_id' => request('id_platillo')
         ]);
 
             $id = request('id_platillo');
 
-            return redirect()->route('extra.create', compact('id'))->with('agregado', ' <div class="alert alert-success border font-weight-bold"> El ingrediente fue agregado </div>');
+            return redirect()->route('ingrediente.create', compact('id'))->with('agregado', ' <div class="alert alert-success border font-weight-bold"> El ingrediente fue agregado </div>');
         
     }
 }

@@ -13,10 +13,11 @@
             @endif
         </div>
         <div class="col-7 bg-success text-center">
+            <a href="{{route('platillos.create')}}" class="text-white link">Regresar</a>
             <h3 class="text-white p-3">Agregando ingrediente extra</h3>
         </div>
         <div class="col-7  p-5 shadow">
-                <form action="{{route('extra.store')}}" method="POST" class="px-5">
+                <form action="{{route('ingrediente.store')}}" method="POST" class="px-5">
                     @csrf
                     <div class="form-group px-5">
                         <label for="">Nombre</label>
@@ -24,7 +25,7 @@
                         {!!$errors->first('nombre', '<div class="alert-alert-sm alert-danger font-weight-bold">:message</div>')!!}
                         <br>
                                             
-                        <input type="text" name="id_platillo" value="{{$id}}">
+                        <input type="hidden" name="id_platillo" value="{{$id}}">
                     </div>
 
                     <div class="form-group px-5 mt-2">
