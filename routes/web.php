@@ -28,7 +28,7 @@ Route::view('/ad-extra', 'admin.ingredientes-extra')->name('extra');
 
 //Rutas de los pedidos que hace el cliente
 
-Route::get('/pedido/{id}', [pedidosController::class, 'create'])->name('prepara.create');
+Route::get('/pedido/{id}', [pedidosController::class, 'show'])->name('prepara.show');
 Route::post('/pedido', [pedidosController::class, 'store'])->name('pedido.store');
 
 
@@ -36,8 +36,8 @@ Route::post('/pedido', [pedidosController::class, 'store'])->name('pedido.store'
 
 
 // Rutas que ayudan a el CRUD de los platillos
-Route::delete('/add-platillo/{id}', [platilloController::class, 'delete'])->name('platillos.delete');
-Route::post('/add-platillos', [platilloController::class, 'store'])->name('platillos.store');
+Route::delete('/add-platillos/{id}', [platilloController::class, 'delete'])->name('platillos.delete');
+Route::post('/add-platillos/save', [platilloController::class, 'store'])->name('platillos.store');
 Route::get('/add-platillos', [platilloController::class, 'show'])->name('platillos.create');
 Route::get('/add-platillos/{id}/editando', [platilloController::class, 'edit'])->name('platillos.edit');
 Route::patch('/add-platillos/{id}', [platilloController::class, 'update'])->name('platillo.update');
@@ -47,8 +47,8 @@ Route::patch('/add-platillos/{id}', [platilloController::class, 'update'])->name
 
 
 //Rutas de los ingredientes EXTRA
-Route::get('/add-platillo/{id}', [extraController::class, 'create'])->name('extra.create');
-Route::post('/add-platillo', [extraController::class, 'store'])->name('extra.store');
+Route::get('/add-platillos/{id}', [extraController::class, 'create'])->name('extra.create');
+Route::post('/add-platillos', [extraController::class, 'store'])->name('extra.store');
 //Rutas de los ingredientes extra
 
 

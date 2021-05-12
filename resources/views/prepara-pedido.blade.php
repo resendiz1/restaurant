@@ -4,7 +4,7 @@
 
     <div class="row m-3 shadow p-2 justify-content-around myborder" style="background-color: lightcoral;">
       <div class="col-12  text-center">
-        <h1 class="letra text-white font-weight-bold">BROWNIES </h1>
+        <h1 class="letra text-white font-weight-bold">BROWNIES</h1>
     </div>
       <div class="col-12 text-center p-3">
         <img src="{{asset('img/maenu.png')}}" class="img-fluid logo" alt="">
@@ -15,31 +15,35 @@
         <form action="{{route('pedido.store')}}" method="POST">
           @csrf
         <div class="row font-weight-bold d-flex justify-content-center" id="back">
-          <div class="col-auto shadow m-2 p-2 bg-primary text-white border border-primary text-center ingrediente btn-sm">
-            <input type="hidden" value="Maiz frijolero del campo" name="ingrediente">
-            Espinacas salteadas con sal
-          </div>
-
+          @php
+              $contador = 0;
+          @endphp
+          @forelse ($normal as $item)
+          
           <div class="col-auto shadow m-2 p-2 bg-warning text-white border border-primary text-center ingrediente btn-sm">
-            <input type="hidden" value="M2" name="ingrediente">
-            Maiz frijolero del campo
+            <input type="hidden" value="{{$item->nombre}}" name="ingrediente{{$contador++}}">
+            {{$item->nombre}}
           </div>
+              
+          @empty
+              
+          @endforelse
+          
 
-          <div class="col-auto shadow m-2 p-2 bg-warning text-white border border-primary text-center ingrediente btn-sm">Maiz fri Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos architecto blanditiis illo reprehenderit ex minus porro quo nulla quisquam temporibus ea corporis vitae, provident commodi officia sint iusto aliquam voluptatibus. jolero del campo</div>
-        </div>
-    
+
       </div>
       <div class="col-lg-12 mt-3 p-4 col-md-12 m-2 text-center bg-white">
         <h1>Agregar ingredientes extra</h1>
         <div class="row font-weight-bold d-flex justify-content-center" id="destino">
      
-              <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
-                <option value="AL">Alabama</option>
-                <option value="WY">Wyoming</option>
-                <option value="WY">Wyoming</option>
-                <option value="AL">Alabama</option>
-                <option value="WY">Wyoming</option>
-                <option value="WY">Wyoming</option>
+              <select class="js-example-basic-multiple" name="extras[]" multiple="multiple">
+              @forelse ($extra as $item)
+              <option value="{{$item->nombre}}">{{$item->nombre}} | <strong>$ {{$item->precio}}</strong></option>  
+              @empty
+                  
+              @endforelse  
+                
+              
               </select>
               <button class="btn btn-success" type="submit">Submit</button>
           </form>

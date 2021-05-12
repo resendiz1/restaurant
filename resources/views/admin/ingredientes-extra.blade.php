@@ -12,6 +12,7 @@
             @endif
         </div>
         <div class="col-7 bg-success text-center">
+            <a href="{{route('platillos.create')}}" class="text-white font-weight-bold">Regresar</a>
             <h3 class="text-white p-3">Agregando ingrediente extra</h3>
         </div>
         <div class="col-7  p-5 shadow">
