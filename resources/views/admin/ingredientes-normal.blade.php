@@ -16,7 +16,7 @@
             <a href="{{route('platillos.create')}}" class="text-white link">Regresar</a>
             <h3 class="text-white p-3">Agregando ingrediente extra</h3>
         </div>
-        <div class="col-7  p-5 shadow">
+        <div class="col-7  p-5 shadow-1-strong">
                 <form action="{{route('ingrediente.store')}}" method="POST" class="px-5">
                     @csrf
                     <div class="form-group px-5">

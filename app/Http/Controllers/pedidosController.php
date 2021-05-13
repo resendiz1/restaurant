@@ -28,8 +28,19 @@ class pedidosController extends Controller
 
 
     public function store(){
-        //Si no se agregan ingredientes extra el contador va a ir a -2
+    
+
+        request()->validate([
+            'cliente' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required'
+        ]);
+
+        return 'validados';
+
+
         
+       
 
         if (request('extras')){
             
@@ -50,7 +61,7 @@ class pedidosController extends Controller
 
 
              //Lo pongo asi por pura mamada
-             $ingredientes_normal = count(request()->input()) -3 ;
+             $ingredientes_normal = count(request()->input()) -6 ;
              for($i=0; $i< $ingredientes_normal ; $i++){
             
                 Pedido::create([
@@ -64,7 +75,7 @@ class pedidosController extends Controller
           }
           else{
 
-            $ingredientes_normal = count(request()->input()) -2 ;
+            $ingredientes_normal = count(request()->input()) -5 ;
             for($i=0; $i< $ingredientes_normal ; $i++){
             
                 Pedido::create([
