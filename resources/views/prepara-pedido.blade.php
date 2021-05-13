@@ -4,10 +4,27 @@
 
     <div class="row m-3 shadow p-2 justify-content-around myborder" style="background-color: lightcoral;">
       <div class="col-12  text-center">
-        <h1 class="letra text-white font-weight-bold">BROWNIES</h1>
+        <h1 class="letra text-white font-weight-bold">Haciendo tu pedido</h1>
     </div>
-      <div class="col-12 text-center p-3">
-        <img src="{{asset('img/maenu.png')}}" class="img-fluid logo" alt="">
+
+      <div class="col-12 ">
+        <form action="">
+        <div class="row d-flex justify-content-around m-4">
+        
+          <div class="col-lg-4 col-md-6">
+            <input type="text" class="form-control" placeholder="Tu nombre completo">
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <input type="text" class="form-control" placeholder="La dirección a donde sera enviado el pedido" name="" id="">
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <input type="text" class="form-control" placeholder="Numero de telefono">
+          </div>
+
+        
+       
+        </div>
+      </form>
       </div>
 
       <div class="col-lg-12 col-md-12 p-3 text-center  bg-white ">
@@ -23,6 +40,7 @@
           <div class="col-auto shadow m-2 p-2 bg-warning text-white border border-primary text-center ingrediente btn-sm">
             <input type="hidden" value="{{$item->nombre}}" name="ingrediente{{$contador++}}">
             {{$item->nombre}}
+            <input type="hidden" value="{{$item->platillo_id}}" name="id">
           </div>
               
           @empty
@@ -45,12 +63,13 @@
                 
               
               </select>
-              <button class="btn btn-success" type="submit">Submit</button>
-          </form>
+        
         </div>
       </div>
-      <div class="col-8">
-        <button class="btn btn-success btn-block" type="submit"><h5>Lanzar pedido</h5></button>
+      <div class="col-12">
+        <button class="btn btn-success btn-block" type="submit">Submit</button>
+           
+      </form>
       </div>
     </div>
     <div class="row m-3 justify-content-around" style="background-color:  lightcoral;">

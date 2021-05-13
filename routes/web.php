@@ -47,16 +47,16 @@ Route::patch('/add-platillos/{id}', [platilloController::class, 'update'])->name
 
 
 //Rutas de los ingredientes EXTRA
-Route::get('/add-platillos/{id}', [extraController::class, 'create'])->name('extra.create');
-Route::post('/add-platillos', [extraController::class, 'store'])->name('extra.store');
+Route::get('/add-platillos/{id}/extra', [extraController::class, 'create'])->name('extra.create');
+Route::post('/add-platillos/extra', [extraController::class, 'store'])->name('extra.store');
 //Rutas de los ingredientes extra
 
 
 
 
 //Rutas de los ingredientes normales
-Route::get('/add-platillo/{id}/', [ingredienteController::class, 'create'])->name('ingrediente.create');
-Route::post('/add-platillo', [ingredienteController::class, 'store'])->name('ingrediente.store');
+Route::get('/add-platillos/{id}/', [ingredienteController::class, 'create'])->name('ingrediente.create');
+Route::post('/add-platillos', [ingredienteController::class, 'store'])->name('ingrediente.store');
 //Rutas de los ingredientes normales
 
 
