@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIngredientesPedidoTable extends Migration
+class CreatePedidoPreparadoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateIngredientesPedidoTable extends Migration
      */
     public function up()
     {
-        Schema::create('ingredientes_pedido', function (Blueprint $table) {
+        Schema::create('pedido_preparado', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('extra')->nullable();
-            $table->string('normal')->nullable();
-            $table->unsignedInteger('ingredientes_pedido.pedido_preparado_id');
+            $table->string('cliente');
+            $table->string('direccion');
+            $table->string('telefono');
+            $table->string('imagen');
+            $table->string('nombre_platillo');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateIngredientesPedidoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_ingredientes_pedido');
+        Schema::dropIfExists('_pedido_preparado');
     }
 }

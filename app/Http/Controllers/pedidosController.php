@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use LengthException;
 use App\Models\Pedido;
+use App\Models\Platillo;
 use App\Models\Ingrediente;
+use App\Models\PedidoPreparado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -30,13 +32,36 @@ class pedidosController extends Controller
     public function store(){
     
 
+    
+
+//Vlidando los datos del formulario
         request()->validate([
             'cliente' => 'required',
             'direccion' => 'required',
             'telefono' => 'required'
         ]);
+//Datos del formulario ya terminados
 
-        return 'validados';
+
+
+
+//Encontrando los datos del platillo correspondiente
+        $imaNombre = Platillo::find(request('id'));
+        $nombre = $imaNombre->nombre;
+        $imagen = $imaNombre->imagen1;
+//Encontrando los datos del platillo correspondiente
+
+       PedidoPreparado::create([
+            'cliente' => request('cliente'),
+            'direccion' => request('direccion'),
+            'telefono' => request('telefono'),
+            'imagen' => $imagen,
+            'nombre_platillo' => $nombre
+        ]);
+
+    $last_id =   PedidoPreparado::latest('id')->first();
+   return $last_id->id;
+
 
 
         
