@@ -45,11 +45,9 @@
               
           @endphp
           @forelse ($normal as $item)
-          @php
-              $position_color = rand(0,6)
-          @endphp
-          <div class="col-auto  m-2 p-2 {{$colores[$position_color]}} text-white border border-primary text-center ingrediente btn-sm">
-            <input type="hidden" value="{{$item->nombre}}" name="ingrediente{{$contador++}}">
+ 
+          <div class="col-auto  m-2 p-2 {{$colores[rand(0,6)]}} text-white border border-primary text-center ingrediente btn-sm">
+            <input type="hidden" value="{{$item->nombre}}" class="input-pedido" name="ingrediente{{$contador++}}">
             {{$item->nombre}}
             <input type="hidden" value="{{$item->platillo_id}}" name="id">
           </div>

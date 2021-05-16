@@ -71,6 +71,15 @@
 .then((willDelete) => {
   if (willDelete) {
     $(this).remove()
+
+//Renombra el NAME  de los inputs para que no haya pedo al mandarlo a PHP
+alert('hla')
+    const $inputs = document.getElementsByClassName('input-pedido');
+    for(i=0; $inputs.length ; i++){
+      $inputs[i].name = 'ingrediente'+i
+    }
+//Renombra el NAME  de los inputs para que no haya pedo al mandarlo a PHP
+
     swal("Ingrediente borrado", {
       icon: "success",
     });
@@ -82,6 +91,13 @@
   }
 });
     })
+
+
+
+
+
+
+
 
   </script>
 </html>

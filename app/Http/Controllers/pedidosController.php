@@ -51,6 +51,8 @@ class pedidosController extends Controller
         $imagen = $imaNombre->imagen1;
 //Encontrando los datos del platillo correspondiente
 
+
+//Guardando los datos del pedido
        PedidoPreparado::create([
             'cliente' => request('cliente'),
             'direccion' => request('direccion'),
@@ -58,24 +60,26 @@ class pedidosController extends Controller
             'imagen' => $imagen,
             'nombre_platillo' => $nombre
         ]);
+//Guardando los datos del pedido
 
+
+//obtengo el ultimo id de esta tabla para agregarlo a las demas
     $last_id =   PedidoPreparado::latest('id')->first();
-   return $last_id->id;
 
 
 
-        
-       
+
+
 
         if (request('extras')){
-            
+         
             $ingredientes_extra = count(request('extras'));
   
              for($j=0; $j < $ingredientes_extra ; $j++ ){
   
               Pedido::create([
                   'nombre' => request('extras')[$j], 
-                  'pedido_id' => request('id'),
+                  'pedido_id' => $last_id->id,
                   'extra' => 'si',
                   'normal' => 'no'      
               ]);
@@ -91,7 +95,7 @@ class pedidosController extends Controller
             
                 Pedido::create([
                     'nombre' => request("ingrediente$i"), 
-                    'pedido_id' => request('id'),
+                    'pedido_id' => $last_id->id,
                     'extra' => 'no',
                     'normal' => 'si'      
                 ]);
@@ -115,7 +119,7 @@ class pedidosController extends Controller
   
 
 
-        return 'success';
+        return 'Pedido lanzado, esperalo con ansias xd xd xd xd';
 
     }
 
